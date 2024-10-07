@@ -69,6 +69,9 @@ public enum BenchSupport {
             new Libapi(Library.MINIMALJSON),
             new Libapi(Library.UNDERSCORE_JAVA),
             new Libapi(Library.ANTONS)
+    ),
+    ICEBERG_TABLE_METADATA(
+            new Libapi(Library.JACKSON, Api.DATABIND)
     );
 
     private final List<Libapi> libapis;

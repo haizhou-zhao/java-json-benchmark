@@ -21,6 +21,8 @@ public final class JsonSourceFactory {
                 return new UsersSource(quantity, size);
             case CLIENTS:
                 return new ClientsSource(quantity, size);
+            case ICEBERG_TABLE_METADATA:
+                return new IcebergTableMetadataSource(quantity, size);
             default:
                 throw new RuntimeException();
         }

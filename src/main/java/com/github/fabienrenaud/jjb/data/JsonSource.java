@@ -24,13 +24,13 @@ public abstract class JsonSource<T> {
 
     private final JsonProvider<T> provider;
 
-    private final T[] jsonAsObject;
-    private final String[] jsonAsString;
-    private final byte[][] jsonAsBytes;
+    protected final T[] jsonAsObject;
+    protected final String[] jsonAsString;
+    protected final byte[][] jsonAsBytes;
     private final ProtoMessage<?>[] jsonAsQuickbufObject;
     private final ThreadLocal<ByteArrayInputStream[]> jsonAsByteArrayInputStream;
 
-    private final DataGenerator<T> dataGenerator;
+    protected final DataGenerator<T> dataGenerator;
     private final StreamSerializer<T> streamSerializer;
     private final StreamDeserializer<T> streamDeserializer;
 
@@ -76,7 +76,7 @@ public abstract class JsonSource<T> {
                 JSONFactory.createWriteContext(featuresWriterProvider));
     }
 
-    private void populateFields(int quantity, int individualSize) {
+    protected void populateFields(int quantity, int individualSize) {
         try {
             for (int i = 0; i < quantity; i++) {
                 T obj = pojoType().newInstance();
